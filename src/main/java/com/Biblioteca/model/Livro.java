@@ -9,7 +9,7 @@ public class Livro{
     private int ano_publicado;
     private boolean disponivel;
 
-    public Livros(int id, String titulo, String autor, String isbn, int ano_publicado, boolean disponivel){
+    public Livro(int id, String titulo, String autor, String isbn, int ano_publicado, boolean disponivel){
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
