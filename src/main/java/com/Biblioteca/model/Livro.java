@@ -1,7 +1,6 @@
 package com.Biblioteca.model;
 
-public class Livro{
-
+public class Livro {
     private int id;
     private String titulo;
     private String autor;
@@ -17,7 +16,7 @@ public class Livro{
         this.ano_publicado = ano_publicado;
         this.disponivel = disponivel;
     }
-    
+
     public int getId() {
         return id;
     }

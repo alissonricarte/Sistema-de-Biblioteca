@@ -1,0 +1,10 @@
+com/Biblioteca/dao/UsuarioDao.class
+com/Biblioteca/dao/EmprestimoDao.class
+com/Biblioteca/Main.class
+com/Biblioteca/model/Livro.class
+com/Biblioteca/util/DatabaseConnetion.class
+com/Biblioteca/model/Emprestimo.class
+com/Biblioteca/service/BibliotecaService.class
+com/Biblioteca/model/Usuario.class
+com/Biblioteca/service/RelatorioService.class
+com/Biblioteca/dao/LivroDao.class
