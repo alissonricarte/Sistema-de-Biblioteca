@@ -14,7 +14,7 @@ public class DatabaseConnetion {
     public static Connection getConnection() throws SQLException{
         return DriverManager.getConnection(URL,USER,PASSWORD);
     }
-    /*public static void testaConexao(){
+    public static void testaConexao(){
         try(Connection connection = getConnection()){
             if(connection != null){
                 System.out.println("ok!");
@@ -28,5 +28,5 @@ public class DatabaseConnetion {
     
     public static void main(String[] args) {
         testaConexao();
-    }*/
+    }
 }
