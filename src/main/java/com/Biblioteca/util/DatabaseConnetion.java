@@ -9,12 +9,12 @@ import java.sql.SQLException;
 public class DatabaseConnetion {
     private static final String URL = "jdbc:postgresql://localhost:5432/biblioteca";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "alisson";
+    private static final String PASSWORD = "suaSenha";
 
     public static Connection getConnection() throws SQLException{
         return DriverManager.getConnection(URL,USER,PASSWORD);
     }
-    public static void testaConexao(){
+    /*public static void testaConexao(){
         try(Connection connection = getConnection()){
             if(connection != null){
                 System.out.println("ok!");
@@ -28,5 +28,5 @@ public class DatabaseConnetion {
     
     public static void main(String[] args) {
         testaConexao();
-    }
+    }*/
 }

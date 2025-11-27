@@ -12,6 +12,14 @@ import com.Biblioteca.util.DatabaseConnetion;
 
 public class UsuarioDao {
     
+
+    private Usuario exibirDadosUsuario (ResultSet resultSet) throws SQLException{
+        return new Usuario(resultSet.getInt("id"),
+                            resultSet.getString("nome"),
+                            resultSet.getString("email"),
+                            resultSet.getString("telefone"),
+                            resultSet.getDate("data_cadastro").toLocalDate());
+    }
     //cadastrar usuario
     public void cadastarUsuario(Usuario usuarios) throws SQLException{
         String sql = "INSERT INTO usuario (nome, email, telefone) VALUES (?, ?, ?)";
@@ -39,12 +47,7 @@ public class UsuarioDao {
                 ResultSet resultSet = stmt.executeQuery();
 
                 if(resultSet.next()){
-                    usuario = new Usuario(
-                        resultSet.getInt("id"),
-                        resultSet.getString("nome"),
-                        resultSet.getString("email"),
-                        resultSet.getString("telefone"),
-                        resultSet.getDate("data_cadastro").toLocalDate());
+                    usuario = exibirDadosUsuario(resultSet);
                 }
             }
         return usuario;
@@ -62,11 +65,7 @@ public class UsuarioDao {
                 ResultSet resultSet = stmt.executeQuery();
 
                 if(resultSet.next()){
-                    usuario = new Usuario(resultSet.getInt("id"),
-                        resultSet.getString("nome"),
-                        resultSet.getString("email"),
-                        resultSet.getString("telefone"),
-                        resultSet.getDate("data_cadastro").toLocalDate());
+                    usuario = exibirDadosUsuario(resultSet);
                 }
             }
         return usuario;    
@@ -86,12 +85,8 @@ public class UsuarioDao {
                     return usuarios;
                 }
                 do { 
-                    Usuario usuario = new Usuario(resultSet.getInt("id"),
-                        resultSet.getString("nome"),
-                        resultSet.getString("email"),
-                        resultSet.getString("telefone"),
-                        resultSet.getDate("data_cadastro").toLocalDate());
-                        usuarios.add(usuario);
+                    Usuario usuario =exibirDadosUsuario(resultSet);
+                    usuarios.add(usuario);
                 } while (resultSet.next());
             }
         return usuarios;

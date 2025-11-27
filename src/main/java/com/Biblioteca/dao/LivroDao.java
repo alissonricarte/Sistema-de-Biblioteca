@@ -1,12 +1,26 @@
 package com.Biblioteca.dao;
 
-import com.Biblioteca.model.Livro;
-import com.Biblioteca.util.DatabaseConnetion;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.Biblioteca.model.Livro;
+import com.Biblioteca.util.DatabaseConnetion;
+
 public class LivroDao {
+    
+    private Livro criarDadosSet(ResultSet resultSet) throws SQLException{
+        return new Livro(resultSet.getInt("id"),
+                        resultSet.getString("titulo"),
+                        resultSet.getString("autor"),
+                        resultSet.getString("isbn"),
+                        resultSet.getInt("ano_publicacao"),
+                        resultSet.getBoolean("disponivel"));
+    }
     //cadastrar livros
 
     public void cadastrarLivro(Livro livros) throws SQLException {
@@ -36,13 +50,7 @@ public class LivroDao {
             ResultSet resultSet = stmt.executeQuery();
 
             if(resultSet.next()){
-                livro = new Livro(
-                        resultSet.getInt("id"),
-                        resultSet.getString("titulo"),
-                        resultSet.getString("autor"),
-                        resultSet.getString("isbn"),
-                        resultSet.getInt("ano_publicacao"),
-                        resultSet.getBoolean("disponivel"));
+                livro = criarDadosSet(resultSet);
             }
         }
         return livro;
@@ -62,14 +70,7 @@ public class LivroDao {
                 return livros;
             }
             do{
-                Livro livro = new Livro(
-                        resultSet.getInt("id"),
-                        resultSet.getString("titulo"),
-                        resultSet.getString("autor"),
-                        resultSet.getString("isbn"),
-                        resultSet.getInt("ano_publicacao"),
-                        resultSet.getBoolean("disponivel")
-                );
+                Livro livro = criarDadosSet(resultSet);
                 livros.add(livro);
             }while(resultSet.next());
         }
@@ -92,14 +93,7 @@ public class LivroDao {
                 return livros;
             }
             do{
-                Livro livro = new Livro(
-                        resultSet.getInt("id"),
-                        resultSet.getString("titulo"),
-                        resultSet.getString("autor"),
-                        resultSet.getString("isbn"),
-                        resultSet.getInt("ano_publicacao"),
-                        resultSet.getBoolean("disponivel")
-                );
+                Livro livro = criarDadosSet(resultSet);
                 livros.add(livro);
             }while(resultSet.next());
         }
@@ -120,14 +114,7 @@ public class LivroDao {
                 return livros;
             }
             do{
-                Livro livro = new Livro(
-                        resultSet.getInt("id"),
-                        resultSet.getString("titulo"),
-                        resultSet.getString("autor"),
-                        resultSet.getString("isbn"),
-                        resultSet.getInt("ano_publicacao"),
-                        resultSet.getBoolean("disponivel")
-                );
+                Livro livro = criarDadosSet(resultSet);
                 livros.add(livro);
             }while(resultSet.next());
         }
@@ -150,14 +137,7 @@ public class LivroDao {
                 return livros;
             }
             do{
-                Livro livro = new Livro(
-                        resultSet.getInt("id"),
-                        resultSet.getString("titulo"),
-                        resultSet.getString("autor"),
-                        resultSet.getString("isbn"),
-                        resultSet.getInt("ano_publicacao"),
-                        resultSet.getBoolean("disponivel")
-                );
+                Livro livro = criarDadosSet(resultSet);
                 livros.add(livro);
             }while(resultSet.next());
         }
